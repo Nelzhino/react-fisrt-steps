@@ -5,6 +5,7 @@ class Graficas extends Component {
   grafica = React.createRef()
 
   componentDidMount () {
+    // Teniendo cuenta que se haga desde una HTTP.
     const ctx = this.grafica.current.getContext('2d')
     const myChart = new Chart(ctx, {
       type: 'bar',

@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
 
-const Unicorn = () => (
-  <span role='img' aria-label='unicornio'>
-    🦄
-  </span>
-)
-
 class InpuntNoControlado extends Component {
   nombre = React.createRef()
   email = React.createRef()
@@ -49,7 +43,7 @@ class FormRefs extends Component {
     return (
       <div>
         <h1>
-          Inputs No controlados Refs <Unicorn />
+          Inputs No controlados Refs
         </h1>
         <InpuntNoControlado
           onSend={this.send}

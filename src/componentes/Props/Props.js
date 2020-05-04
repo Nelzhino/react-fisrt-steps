@@ -10,7 +10,7 @@ class Profile extends Component {
   }
 
   render () {
-    const { name, bio, email } = this.props
+    const { name, bio, email, age } = this.props
     return (
       <div>
         <h1>{ name }</h1>
@@ -20,6 +20,9 @@ class Profile extends Component {
         <a href={`mailto:${email}`}>
           { email }
         </a>
+        <p>
+          { age }
+        </p>
       </div>
     )
   }
@@ -30,9 +33,10 @@ class App extends Component {
     return (
       <div>
         <Profile
-          name='Gerardo Gallegos'
-          bio='Soy un desarrollador Fullstackmy-email@mail.com'
+          name={11221322}
+          bio='Soy un desarrollador mail@mail.com'
           email='my-email@mail.com'
+          age = {true}
         />
       </div>
     )

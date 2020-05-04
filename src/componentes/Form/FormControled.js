@@ -1,66 +1,82 @@
+import React, { Component } from 'react'
 
-import React, { Component } from 'react';
+class InputControlado extends Component {
+  state = {
+    text: '',
+    color: '#E8E8E8'
+  }
 
-class InputControled extends Component{
+  actualizar = (event) => {
+    const text = event.target.value
+    let color = 'green'
 
-
-    state = {
-        text : '',
-        color: '#e8e8e8'
+    if (text.trim() === '') {
+      color = '#E8E8E8'
     }
 
-
-    update = (event) => {
-        const text = event.target.value; 
-        let color = 'green';
-
-        if(text.trim() !== '' && text.length < 5){
-            color = 'red';
-        }
-
-        if(text === ''){
-            color = '#e8e8e8';
-        }
-
-        this.setState({text, color}); 
+    if (text.trim() !== '' && text.length < 5) {
+      color = 'red'
     }
 
-    render(){
-        const styles = {
-            borderLeft: `5px solid ${ this.state.color }`,
-            padding: '0.3em 0.6em',
-            outline: 'none'
-            
-        }
-        return (
-            <div className="card bg-primary mb-3">
-                <div className="card-body">
-                    <h3 className="card-title">Valid Input Controled</h3>
-                    <input 
-                        type="text" className="form-control"
-                        value = {this.state.text}
-                        onChange = {this.update}
-                        style = { styles }
-                    />
-                </div>
-            </div>
-        );
+    this.setState({ text, color })
+
+    // Propagando datos al padre
+    this.props.onChange(this.props.name, text)
+  }
+
+  render () {
+    const styles = {
+      border: `1px solid ${this.state.color}`,
+      padding: '0.3em 0.6em',
+      outline: 'none'
     }
+    return (
+      <input
+        type='text'
+        value={this.state.text}
+        onChange={this.actualizar}
+        style={styles}
+        placeholder={this.props.placeholder}
+      />
+    )
+  }
 }
 
+class FormControled extends Component {
+  state = {
+    name: '',
+    email: ''
+  }
 
-
-class FormControled extends Component{
-
-
-    render(){
-        return (
-            <div className="container m-5">
-                <InputControled />
-            </div>
-        )
-    }
+  actualizar = (name, text) => {
+    this.setState({
+      [name]: text
+    })
+  }
+  
+  render () {
+    return (
+      <div>
+        <h1>Input Controlado</h1>
+        <InputControlado
+          onChange={this.actualizar}
+          placeholder='Nombre Completo'
+          name='name'
+        />
+        <InputControlado
+          onChange={this.actualizar}
+          placeholder='Tu Email'
+          name='email'
+        />
+        <h2>
+          Nombre: { this.state.name }
+        </h2>
+        <h2>
+          Email: { this.state.email }
+        </h2>
+      </div>
+    )
+  }
 }
 
-
-export default FormControled;
+export default FormControled

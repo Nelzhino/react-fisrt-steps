@@ -1,16 +1,11 @@
 import React from 'react';
-import FormControled from './componentes/Form/FormControled';
-
-
+import PatronHOCWindows from './componentes/Comunication/PatronHOCWindows';
 
 const App = () => (
  
-  <div>
-    <FormControled/>
+  <div className="container">
+    <PatronHOCWindows />
   </div>
-
-
-
 );
 
 export default App;
