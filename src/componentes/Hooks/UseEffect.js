@@ -15,12 +15,6 @@ const Header = () => {
     <header style={styles}>
       <h1>
         Hook useEffect
-        <span
-          role='img'
-          aria-label='hook emoji'
-        >
-          ⚓
-        </span> 
       </h1>
     </header>
   )

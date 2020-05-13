@@ -15,12 +15,6 @@ const Header = () => {
     <header style={styles}>
       <h1>
         Hook useContext
-        <span
-          role='img'
-          aria-label='hook emoji'
-        >
-          ⚓
-        </span> 
       </h1>
     </header>
   )
@@ -64,7 +58,7 @@ const Hijo = () => (
   </div>
 )
 
-const App = () => {
+const UseContext = () => {
   const [ num, setNum ] = useState(0)
 
   const addNum = () => setNum(num + 1)
@@ -85,4 +79,4 @@ const App = () => {
   )
 }
 
-export default App
+export default UseContext
